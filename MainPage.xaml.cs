@@ -2,22 +2,23 @@
 
 public partial class MainPage : ContentPage
 {
-    int count = 0;
-
     public MainPage()
     {
         InitializeComponent();
+
+        // Any additional code-behind logic can be added here.
     }
 
-    private void OnCounterClicked(object sender, EventArgs e)
+    private async void OnTap2PayClicked(object sender, EventArgs e)
     {
-        count++;
-
-        if (count == 1)
-            CounterBtn.Text = $"Clicked {count} time";
-        else
-            CounterBtn.Text = $"Clicked {count} times";
-
-        SemanticScreenReader.Announce(CounterBtn.Text);
+        // Navigate to PaymentPage
+        try
+        {
+            await Shell.Current.GoToAsync("//payment");
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", ex.Message, "OK");
+        }
     }
 }

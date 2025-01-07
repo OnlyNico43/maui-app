@@ -1,15 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    Shell.FlyoutBehavior="Disabled"
+    Shell.BackgroundColor="{StaticResource White}"
+    Shell.FlyoutBackground="{StaticResource White}"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutContent="{StaticResource Black}"
+    Shell.ForegroundColor="{StaticResource Black}"
+    Shell.TitleColor="{StaticResource Black}"
     Title="PayBuddy"
     x:Class="PayBuddy.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:local="clr-namespace:PayBuddy"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <ShellContent
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage"
-        Title="Home" />
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
+                <!--  Icon  -->
+                <Label
+                    FontFamily="PhosphorIcons"
+                    FontSize="20"
+                    Grid.Column="0"
+                    Text="{Binding IconGlyph}"
+                    TextColor="{StaticResource Black}" />
+
+
+                <!--  Title  -->
+                <Label
+                    FontSize="16"
+                    Grid.Column="1"
+                    Text="{Binding Title}"
+                    TextColor="{StaticResource Black}"
+                    VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <FlyoutItem Title="Home" local:ShellExtensions.IconGlyph="&#xE2C2;">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="main" />
+    </FlyoutItem>
+
+
+    <FlyoutItem Title="Tap 2 Pay" local:ShellExtensions.IconGlyph="&#xED42;">
+        <ShellContent ContentTemplate="{DataTemplate local:PaymentPage}" Route="payment" />
+    </FlyoutItem>
 </Shell>
