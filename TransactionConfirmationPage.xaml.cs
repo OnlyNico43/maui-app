@@ -38,6 +38,7 @@ public partial class TransactionConfirmationPage : ContentPage
     {
         await DisplayAlert("Success", "Money transfer initiated successfully!", "OK");
         onSuccess?.Invoke();
+        await Navigation.PopAsync();
         await Shell.Current.GoToAsync("//main");
     }
 }

@@ -72,7 +72,7 @@
                         IsClippedToBounds="True"
                         Padding="0"
                         WidthRequest="80">
-                        <Image Aspect="AspectFill" Source="/api/placeholder/80/80" />
+                        <Image Aspect="AspectFill" Source="nico.jpg" />
                     </Frame>
 
                     <!--  Creator Details  -->
