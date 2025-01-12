@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    BackgroundColor="White"
+    Title="Send Money"
+    x:Class="PayBuddy.SendMoneyPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <!--  Entry  -->
+            <VerticalStackLayout>
+                <Label
+                    FontSize="14"
+                    Text="Recipient's Name"
+                    TextColor="{StaticResource Black}" />
+                <Entry
+                    BackgroundColor="White"
+                    HeightRequest="40"
+                    Keyboard="Text"
+                    Placeholder="Enter your friend's name"
+                    PlaceholderColor="#CCCCCC"
+                    Style="{StaticResource EntryWithGrayOutline}"
+                    TextColor="{StaticResource Black}"
+                    x:Name="RecipientNameEntry" />
+            </VerticalStackLayout>
+
+            <!--  CheckBox  -->
+            <HorizontalStackLayout>
+                <Label
+                    FontSize="14"
+                    Text="Save as Frequent Contact"
+                    TextColor="{StaticResource Black}"
+                    VerticalOptions="Center" />
+                <CheckBox
+                    Color="{StaticResource Primary}"
+                    VerticalOptions="Center"
+                    x:Name="SaveContactCheckBox" />
+            </HorizontalStackLayout>
+
+            <!--  RadioButton  -->
+            <VerticalStackLayout>
+                <Label
+                    FontSize="14"
+                    Text="Transfer Speed"
+                    TextColor="{StaticResource Black}" />
+                <HorizontalStackLayout Spacing="10">
+                    <RadioButton
+                        CheckedChanged="OnRadioButtonCheckedChanged"
+                        Content="Instant (1% fee)"
+                        GroupName="TransferSpeed"
+                        TextColor="{StaticResource Black}"
+                        x:Name="InstantRadioButton" />
+
+                    <RadioButton
+                        CheckedChanged="OnRadioButtonCheckedChanged"
+                        Content="Standard (free)"
+                        GroupName="TransferSpeed"
+                        TextColor="{StaticResource Black}"
+                        x:Name="StandardRadioButton" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!--  Slider  -->
+            <VerticalStackLayout>
+                <Label
+                    FontSize="14"
+                    Text="Amount ($)"
+                    TextColor="{StaticResource Black}" />
+                <Slider
+                    Maximum="1000"
+                    Minimum="1"
+                    MinimumTrackColor="{StaticResource Primary}"
+                    ThumbColor="{StaticResource Primary}"
+                    ValueChanged="OnSliderValueChanged"
+                    x:Name="AmountSlider" />
+                <Label
+                    FontSize="14"
+                    Text="Selected Amount: $1"
+                    TextColor="{StaticResource Black}"
+                    x:Name="AmountLabel" />
+            </VerticalStackLayout>
+
+            <!--  Picker  -->
+            <VerticalStackLayout>
+                <Label
+                    FontSize="14"
+                    Text="Payment Method"
+                    TextColor="{StaticResource Black}" />
+                <Picker
+                    Style="{StaticResource EntryWithGrayOutline}"
+                    TextColor="{StaticResource Black}"
+                    Title="Select payment method"
+                    TitleColor="#CCCCCC"
+                    x:Name="PaymentMethodPicker">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Bank Account</x:String>
+                            <x:String>Debit Card</x:String>
+                            <x:String>Credit Card</x:String>
+                            <x:String>PayBuddy Balance</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </VerticalStackLayout>
+
+            <!--  DatePicker  -->
+            <VerticalStackLayout>
+                <Label
+                    FontSize="14"
+                    Text="Schedule Transfer Date"
+                    TextColor="{StaticResource Black}" />
+                <DatePicker
+                    Style="{StaticResource EntryWithGrayOutline}"
+                    TextColor="{StaticResource Black}"
+                    x:Name="TransferDatePicker" />
+            </VerticalStackLayout>
+
+            <!--  Submit Button  -->
+            <Button
+                BackgroundColor="{StaticResource Primary}"
+                Clicked="OnSubmitClicked"
+                FontAttributes="Bold"
+                Text="Send Money"
+                TextColor="White" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

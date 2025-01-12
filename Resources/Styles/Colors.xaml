@@ -10,6 +10,10 @@
     <Color x:Key="Secondary">#9353D3</Color>
     <Color x:Key="SecondaryDarkText">#9880e5</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>
+    <Color x:Key="Danger">#F31260</Color>
+    <Color x:Key="Success">#17C964</Color>
+    <Color x:Key="ForegroundGray">#e6e6e6</Color>
+    <Color x:Key="ForegroundGrayStroke">#e0e0e0</Color>
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>

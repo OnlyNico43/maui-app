@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    Title="About PayBuddy"
+    x:Class="PayBuddy.AboutPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="25">
+            <!--  App Logo  -->
+            <Image
+                HeightRequest="120"
+                HorizontalOptions="Center"
+                Source="logo.svg"
+                WidthRequest="120" />
+
+            <!--  App Name  -->
+            <Label
+                FontAttributes="Bold"
+                FontSize="32"
+                HorizontalOptions="Center"
+                Text="PayBuddy"
+                TextColor="{StaticResource Primary}" />
+
+            <!--  Version  -->
+            <Label
+                FontSize="14"
+                HorizontalOptions="Center"
+                Text="Version 1.0.0"
+                TextColor="{StaticResource Gray500}" />
+
+            <!--  Mission Statement  -->
+            <Frame
+                BackgroundColor="White"
+                BorderColor="{StaticResource Primary}"
+                Margin="0,10"
+                Padding="20">
+                <VerticalStackLayout Spacing="15">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        Text="Our Mission"
+                        TextColor="{StaticResource Primary}" />
+                    <Label
+                        FontSize="16"
+                        Text="To make financial transactions seamless, secure, and accessible to everyone. PayBuddy aims to revolutionize the way people send and receive money by providing a user-friendly platform that prioritizes security, speed, and reliability."
+                        TextColor="{StaticResource Black}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--  Creator Info  -->
+            <Frame
+                BackgroundColor="White"
+                BorderColor="{StaticResource ForegroundGrayStroke}"
+                Padding="20">
+                <Grid RowSpacing="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!--  Creator Image  -->
+                    <Frame
+                        CornerRadius="40"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        HeightRequest="80"
+                        IsClippedToBounds="True"
+                        Padding="0"
+                        WidthRequest="80">
+                        <Image Aspect="AspectFill" Source="/api/placeholder/80/80" />
+                    </Frame>
+
+                    <!--  Creator Details  -->
+                    <VerticalStackLayout
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Padding="15,0"
+                        Spacing="5">
+                        <Label
+                            FontSize="14"
+                            Text="Created by"
+                            TextColor="{StaticResource Gray500}" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            Text="Nico Benninger"
+                            TextColor="{StaticResource Black}" />
+                        <Label
+                            FontSize="16"
+                            Text="Lead Developer"
+                            TextColor="{StaticResource Primary}" />
+                    </VerticalStackLayout>
+
+                    <!--  Links Section  -->
+                    <VerticalStackLayout
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="1"
+                        Margin="0,15,0,0"
+                        Spacing="15">
+
+                        <Button
+                            BackgroundColor="{StaticResource Primary}"
+                            Clicked="OnGitHubClicked"
+                            ImageSource="github.png"
+                            Text="GitHub Repository"
+                            TextColor="White" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!--  Key Features  -->
+            <Frame
+                BackgroundColor="White"
+                BorderColor="{StaticResource ForegroundGrayStroke}"
+                Padding="20">
+                <VerticalStackLayout Spacing="15">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        Text="Key Features"
+                        TextColor="{StaticResource Primary}" />
+
+                    <Grid ColumnSpacing="15" RowSpacing="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!--  Feature 1  -->
+                        <VerticalStackLayout
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            Spacing="5">
+                            <Label
+                                FontFamily="PhosphorIcons"
+                                FontSize="50"
+                                Text="&#xE2DE;" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="Instant Transfers"
+                                TextColor="{StaticResource Black}" />
+                            <Label
+                                FontSize="12"
+                                Text="Send money within seconds"
+                                TextColor="{StaticResource Gray500}" />
+                        </VerticalStackLayout>
+
+                        <!--  Feature 2  -->
+                        <VerticalStackLayout
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Spacing="5">
+                            <Label
+                                FontFamily="PhosphorIcons"
+                                FontSize="50"
+                                Text="&#xE2FE;" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="Secure"
+                                TextColor="{StaticResource Black}" />
+                            <Label
+                                FontSize="12"
+                                Text="End-to-end encryption"
+                                TextColor="{StaticResource Gray500}" />
+                        </VerticalStackLayout>
+
+                        <!--  Feature 3  -->
+                        <VerticalStackLayout
+                            Grid.Column="0"
+                            Grid.Row="1"
+                            Spacing="5">
+                            <Label
+                                FontFamily="PhosphorIcons"
+                                FontSize="50"
+                                Text="&#xE78E;" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="Low Fees"
+                                TextColor="{StaticResource Black}" />
+                            <Label
+                                FontSize="12"
+                                Text="Transparent pricing"
+                                TextColor="{StaticResource Gray500}" />
+                        </VerticalStackLayout>
+
+                        <!--  Feature 4  -->
+                        <VerticalStackLayout
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            Spacing="5">
+                            <Label
+                                FontFamily="PhosphorIcons"
+                                FontSize="50"
+                                Text="&#xE584;" />
+                            <Label
+                                FontAttributes="Bold"
+                                Text="24/7 Support"
+                                TextColor="{StaticResource Black}" />
+                            <Label
+                                FontSize="12"
+                                Text="Always here to help"
+                                TextColor="{StaticResource Gray500}" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--  Contact Info  -->
+            <Label
+                FontSize="12"
+                HorizontalOptions="Center"
+                Text="© 2024 PayBuddy. All rights reserved."
+                TextColor="{StaticResource Gray500}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

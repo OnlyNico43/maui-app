@@ -48,4 +48,20 @@
     <FlyoutItem Title="Tap 2 Pay" local:ShellExtensions.IconGlyph="&#xED42;">
         <ShellContent ContentTemplate="{DataTemplate local:PaymentPage}" Route="payment" />
     </FlyoutItem>
+
+    <FlyoutItem Title="Transactions Overview" local:ShellExtensions.IconGlyph="">
+        <ShellContent ContentTemplate="{DataTemplate local:TransactionsOverviewPage}" Route="transactions" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Send Money" local:ShellExtensions.IconGlyph="&#xEE5A;">
+        <ShellContent ContentTemplate="{DataTemplate local:SendMoneyPage}" Route="send-money" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="FAQ" local:ShellExtensions.IconGlyph="&#xEE5A;">
+        <ShellContent ContentTemplate="{DataTemplate local:FAQPage}" Route="faq" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="About" local:ShellExtensions.IconGlyph="&#xEE5A;">
+        <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" Route="about" />
+    </FlyoutItem>
 </Shell>

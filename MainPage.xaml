@@ -17,207 +17,202 @@
 
                 <!--  Latest Transactions Section  -->
                 <Frame
-                    BackgroundColor="{StaticResource Gray200}"
-                    BorderColor="{StaticResource Gray300}"
+                    BackgroundColor="{StaticResource ForegroundGray}"
+                    BorderColor="{StaticResource ForegroundGrayStroke}"
                     CornerRadius="10"
                     Padding="10">
                     <VerticalStackLayout>
-                        <HorizontalStackLayout HorizontalOptions="Fill">
+                        <!--  Header Section  -->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--  Label in the first column  -->
                             <Label
                                 FontAttributes="Bold"
                                 FontSize="16"
+                                Grid.Column="0"
                                 Text="Latest transactions"
                                 TextColor="{StaticResource OffBlack}"
                                 VerticalOptions="Center" />
+
+                            <!--  Button in the second column  -->
                             <Button
                                 BackgroundColor="Transparent"
-                                FontSize="12"
-                                HorizontalOptions="EndAndExpand"
+                                BorderColor="{StaticResource Secondary}"
+                                BorderWidth="1"
+                                Clicked="OnToTransactionsClicked"
+                                Grid.Column="1"
                                 Text="All transactions"
                                 TextColor="{StaticResource Secondary}" />
-                        </HorizontalStackLayout>
-                        <StackLayout Spacing="5">
-                            <HorizontalStackLayout>
-                                <Label
-                                    FontSize="14"
-                                    Text="- $11.15"
-                                    TextColor="{StaticResource Magenta}" />
-                                <Label
-                                    FontSize="14"
-                                    HorizontalOptions="EndAndExpand"
-                                    Text="Coop Ryflihof"
-                                    TextColor="{StaticResource OffBlack}" />
-                            </HorizontalStackLayout>
-                            <HorizontalStackLayout>
-                                <Label
-                                    FontSize="14"
-                                    Text="+ $9.20"
-                                    TextColor="{StaticResource Primary}" />
-                                <Label
-                                    FontSize="14"
-                                    HorizontalOptions="EndAndExpand"
-                                    Text="Money received from H. Hills"
-                                    TextColor="{StaticResource OffBlack}" />
-                            </HorizontalStackLayout>
-                            <HorizontalStackLayout>
-                                <Label
-                                    FontSize="14"
-                                    Text="- $50.45"
-                                    TextColor="{StaticResource Magenta}" />
-                                <Label
-                                    FontSize="14"
-                                    HorizontalOptions="EndAndExpand"
-                                    Text="Loeb Bern"
-                                    TextColor="{StaticResource OffBlack}" />
-                            </HorizontalStackLayout>
-                            <HorizontalStackLayout>
-                                <Label
-                                    FontSize="14"
-                                    Text="- $21.95"
-                                    TextColor="{StaticResource Magenta}" />
-                                <Label
-                                    FontSize="14"
-                                    HorizontalOptions="EndAndExpand"
-                                    Text="Sprüngli Bern HB"
-                                    TextColor="{StaticResource OffBlack}" />
-                            </HorizontalStackLayout>
-                            <HorizontalStackLayout>
-                                <Label
-                                    FontSize="14"
-                                    Text="- $105.70"
-                                    TextColor="{StaticResource Magenta}" />
-                                <Label
-                                    FontSize="14"
-                                    HorizontalOptions="EndAndExpand"
-                                    Text="Digitec Galaxus"
-                                    TextColor="{StaticResource OffBlack}" />
-                            </HorizontalStackLayout>
-                        </StackLayout>
+                        </Grid>
+
+                        <!--  Transactions Collection  -->
+                        <CollectionView
+                            HorizontalOptions="Fill"
+                            Margin="0,10,0,0"
+                            VerticalOptions="Fill"
+                            x:Name="TransactionsCollectionView">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <HorizontalStackLayout Spacing="10">
+                                        <!--  Amount  -->
+                                        <Label
+                                            FontSize="14"
+                                            Text="{Binding Amount}"
+                                            TextColor="{Binding AmountColor}" />
+
+                                        <!--  Transaction Description  -->
+                                        <Label
+                                            FontSize="14"
+                                            HorizontalOptions="FillAndExpand"
+                                            LineBreakMode="TailTruncation"
+                                            MaxLines="1"
+                                            Text="{Binding Description}"
+                                            TextColor="{StaticResource OffBlack}" />
+                                    </HorizontalStackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
                     </VerticalStackLayout>
                 </Frame>
 
+
                 <!--  Balance and Monthly Spending  -->
-                <Grid ColumnDefinitions="*,*" RowSpacing="10">
-                    <Frame
-                        BackgroundColor="{StaticResource White}"
-                        BorderColor="{StaticResource Gray300}"
-                        CornerRadius="10"
-                        Grid.Column="0"
-                        Padding="10">
-                        <VerticalStackLayout Spacing="5">
-                            <Label
-                                FontSize="14"
-                                Text="Balance"
-                                TextColor="{StaticResource Gray500}" />
-                            <Label
-                                FontAttributes="Bold"
-                                FontSize="20"
-                                Text="$45,678.90"
-                                TextColor="{StaticResource Black}" />
-                            <Label
-                                FontSize="12"
-                                Text="+20% in the last 30 days"
-                                TextColor="{StaticResource Secondary}" />
-                        </VerticalStackLayout>
-                    </Frame>
-                    <Frame
-                        BackgroundColor="{StaticResource White}"
-                        BorderColor="{StaticResource Gray300}"
-                        CornerRadius="10"
-                        Grid.Column="1"
-                        Padding="10">
-                        <VerticalStackLayout Spacing="5">
-                            <Label
-                                FontSize="14"
-                                Text="Monthly spending"
-                                TextColor="{StaticResource Gray500}" />
-                            <Label
-                                FontAttributes="Bold"
-                                FontSize="20"
-                                Text="$2,405"
-                                TextColor="{StaticResource Black}" />
-                            <Label
-                                FontSize="12"
-                                Text="+33% in the last 30 days"
-                                TextColor="{StaticResource Secondary}" />
-                        </VerticalStackLayout>
-                    </Frame>
-                </Grid>
+                <ScrollView Orientation="Horizontal">
+                    <CollectionView HorizontalScrollBarVisibility="Always" x:Name="CardCollectionView">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="10" Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame
+                                    BackgroundColor="{StaticResource ForegroundGray}"
+                                    BorderColor="{StaticResource ForegroundGrayStroke}"
+                                    CornerRadius="10"
+                                    HeightRequest="120"
+                                    Padding="10"
+                                    WidthRequest="200">
+                                    <VerticalStackLayout Spacing="5">
+                                        <Label
+                                            FontSize="14"
+                                            Text="{Binding Title}"
+                                            TextColor="{StaticResource Gray500}" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            Text="{Binding Amount}"
+                                            TextColor="{StaticResource Black}" />
+                                        <Label
+                                            FontSize="12"
+                                            Text="{Binding Description}"
+                                            TextColor="{StaticResource Secondary}" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
 
                 <!--  Contacts Section  -->
                 <Frame
-                    BackgroundColor="{StaticResource Gray200}"
-                    BorderColor="{StaticResource Gray300}"
+                    BackgroundColor="{StaticResource ForegroundGray}"
+                    BorderColor="{StaticResource ForegroundGrayStroke}"
                     CornerRadius="10"
                     Padding="10">
                     <VerticalStackLayout>
-                        <HorizontalStackLayout HorizontalOptions="Fill">
+                        <!--  Header Section  -->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--  Label in the first column  -->
                             <Label
                                 FontAttributes="Bold"
                                 FontSize="16"
+                                Grid.Column="0"
                                 Text="Contacts"
                                 TextColor="{StaticResource OffBlack}"
                                 VerticalOptions="Center" />
+
+                            <!--  Button in the second column  -->
                             <Button
                                 BackgroundColor="Transparent"
-                                FontSize="12"
-                                HorizontalOptions="EndAndExpand"
+                                BorderColor="{StaticResource Secondary}"
+                                BorderWidth="1"
+                                Clicked="OnAllContactsClicked"
+                                Grid.Column="1"
                                 Text="All contacts"
                                 TextColor="{StaticResource Secondary}" />
-                        </HorizontalStackLayout>
-                        <StackLayout Spacing="5">
-                            <StackLayout>
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="14"
-                                    Text="Helena Hills"
-                                    TextColor="{StaticResource Black}" />
-                                <Label
-                                    FontSize="12"
-                                    Text="email@fakedomain.net"
-                                    TextColor="{StaticResource Gray500}" />
-                            </StackLayout>
-                            <StackLayout>
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="14"
-                                    Text="Oscar Dum"
-                                    TextColor="{StaticResource Black}" />
-                                <Label
-                                    FontSize="12"
-                                    Text="email@fakedomain.net"
-                                    TextColor="{StaticResource Gray500}" />
-                            </StackLayout>
-                            <StackLayout>
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="14"
-                                    Text="Carlo Emilion"
-                                    TextColor="{StaticResource Black}" />
-                                <Label
-                                    FontSize="12"
-                                    Text="email@fakedomain.net"
-                                    TextColor="{StaticResource Gray500}" />
-                            </StackLayout>
-                            <StackLayout>
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="14"
-                                    Text="Daniel Jay Park"
-                                    TextColor="{StaticResource Black}" />
-                                <Label
-                                    FontSize="12"
-                                    Text="email@fakedomain.net"
-                                    TextColor="{StaticResource Gray500}" />
-                            </StackLayout>
-                        </StackLayout>
+                        </Grid>
+
+                        <!--  Dynamic Contacts Section  -->
+                        <CollectionView
+                            HorizontalOptions="Fill"
+                            Margin="0,10,0,0"
+                            VerticalOptions="Fill"
+                            x:Name="ContactsCollectionView">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <HorizontalStackLayout Spacing="10">
+                                        <!--  Profile Picture  -->
+                                        <Image
+                                            Aspect="AspectFill"
+                                            HeightRequest="40"
+                                            HorizontalOptions="Start"
+                                            Source="{Binding ProfilePicture}"
+                                            VerticalOptions="Center"
+                                            WidthRequest="40">
+                                            <Image.Clip>
+                                                <EllipseGeometry
+                                                    Center="20,20"
+                                                    RadiusX="20"
+                                                    RadiusY="20" />
+                                            </Image.Clip>
+                                        </Image>
+
+                                        <!--  Contact Details  -->
+                                        <VerticalStackLayout>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="14"
+                                                Text="{Binding Name}"
+                                                TextColor="{StaticResource Black}" />
+                                            <Label
+                                                FontSize="12"
+                                                Text="{Binding Email}"
+                                                TextColor="{StaticResource Gray500}" />
+                                        </VerticalStackLayout>
+                                    </HorizontalStackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
                     </VerticalStackLayout>
                 </Frame>
+
             </VerticalStackLayout>
         </ScrollView>
         <!--  Tap to Pay Button  -->
 
         <Frame
+            BackgroundColor="{StaticResource White}"
+            BorderColor="Transparent"
             HorizontalOptions="Fill"
             Padding="20"
             VerticalOptions="End"

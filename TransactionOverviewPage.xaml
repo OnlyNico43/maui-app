@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    BackgroundColor="{StaticResource White}"
+    Title="Transactions Overview"
+    x:Class="PayBuddy.TransactionsOverviewPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <VerticalStackLayout Padding="10">
+        <!--  Search Bar  -->
+        <SearchBar
+            BackgroundColor="{StaticResource ForegroundGrayStroke}"
+            Placeholder="Search transactions..."
+            TextChanged="OnSearchTextChanged"
+            TextColor="{StaticResource Black}"
+            x:Name="SearchBar" />
+
+        <!--  Transactions List  -->
+        <CollectionView
+            ItemsSource="{Binding Transactions}"
+            SelectionMode="None"
+            x:Name="TransactionsCollectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        ColumnDefinitions="*,Auto"
+                        Padding="10"
+                        RowDefinitions="Auto">
+                        <!--  Amount  -->
+                        <Label
+                            FontSize="16"
+                            Text="{Binding Amount}"
+                            TextColor="{Binding AmountColor}" />
+
+                        <!--  Description  -->
+                        <Label
+                            FontSize="16"
+                            Grid.Column="1"
+                            Text="{Binding Description}"
+                            TextColor="{StaticResource PrimaryDarkText}" />
+
+                        <!--  Chevron Icon  -->
+                        <Image
+                            Grid.Column="2"
+                            HeightRequest="16"
+                            Source="chevron_right.png" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

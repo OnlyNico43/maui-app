@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    Title="FAQ"
+    x:Class="PayBuddy.FAQPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!--  General Questions Section  -->
+            <Label
+                FontAttributes="Bold"
+                FontSize="18"
+                Margin="0,0,0,10"
+                Text="General Questions"
+                TextColor="{StaticResource Black}" />
+
+            <!--  How secure is PayBuddy?  -->
+            <Frame
+                BorderColor="{StaticResource ForegroundGrayStroke}"
+                Margin="0,5"
+                Padding="0">
+                <VerticalStackLayout>
+                    <Grid BackgroundColor="White" Padding="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            FontSize="16"
+                            Text="How secure is PayBuddy?"
+                            TextColor="{StaticResource Black}" />
+                        <Button
+                            BackgroundColor="Transparent"
+                            Clicked="OnToggleClicked"
+                            Grid.Column="1"
+                            HeightRequest="40"
+                            Padding="0"
+                            StyleId="SecurityButton"
+                            Text="+"
+                            TextColor="{StaticResource Primary}"
+                            WidthRequest="40" />
+                    </Grid>
+                    <VerticalStackLayout
+                        BackgroundColor="{StaticResource ForegroundGray}"
+                        IsVisible="false"
+                        Padding="15"
+                        x:Name="SecurityAnswer">
+                        <Label Text="PayBuddy uses industry-leading security measures including:&#x0a;• End-to-end encryption&#x0a;• Two-factor authentication&#x0a;• Biometric security options&#x0a;• 24/7 fraud monitoring&#x0a;• Secure data centers&#x0a;&#x0a;All transactions are encrypted and monitored for suspicious activity." TextColor="{StaticResource Black}" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--  Transfer Limits  -->
+            <Frame
+                BorderColor="{StaticResource ForegroundGrayStroke}"
+                Margin="0,5"
+                Padding="0">
+                <VerticalStackLayout>
+                    <Grid BackgroundColor="White" Padding="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            FontSize="16"
+                            Text="What are the transfer limits?"
+                            TextColor="{StaticResource Black}" />
+                        <Button
+                            BackgroundColor="Transparent"
+                            Clicked="OnToggleClicked"
+                            Grid.Column="1"
+                            HeightRequest="40"
+                            Padding="0"
+                            StyleId="LimitsButton"
+                            Text="+"
+                            TextColor="{StaticResource Primary}"
+                            WidthRequest="40" />
+                    </Grid>
+                    <VerticalStackLayout
+                        BackgroundColor="{StaticResource ForegroundGray}"
+                        IsVisible="false"
+                        Padding="15"
+                        x:Name="LimitsAnswer">
+                        <Label Text="Transfer limits vary based on your account verification level:&#x0a;&#x0a;Basic Account:&#x0a;• Single transfer: $1,000&#x0a;• Daily limit: $2,000&#x0a;• Monthly limit: $10,000&#x0a;&#x0a;Verified Account:&#x0a;• Single transfer: $5,000&#x0a;• Daily limit: $10,000&#x0a;• Monthly limit: $50,000&#x0a;&#x0a;Business Account:&#x0a;• Customized limits based on business needs" TextColor="{StaticResource Black}" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--  Fees Question  -->
+            <Frame
+                BorderColor="{StaticResource ForegroundGrayStroke}"
+                Margin="0,5"
+                Padding="0">
+                <VerticalStackLayout>
+                    <Grid BackgroundColor="White" Padding="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            FontSize="16"
+                            Text="What are the transfer fees?"
+                            TextColor="{StaticResource Black}" />
+                        <Button
+                            BackgroundColor="Transparent"
+                            Clicked="OnToggleClicked"
+                            Grid.Column="1"
+                            HeightRequest="40"
+                            Padding="0"
+                            StyleId="FeesButton"
+                            Text="+"
+                            TextColor="{StaticResource Primary}"
+                            WidthRequest="40" />
+                    </Grid>
+                    <VerticalStackLayout
+                        BackgroundColor="{StaticResource ForegroundGray}"
+                        IsVisible="false"
+                        Padding="15"
+                        x:Name="FeesAnswer">
+                        <Label Text="Our fee structure is simple and transparent:&#x0a;&#x0a;Standard Transfers (2-3 business days):&#x0a;• FREE for PayBuddy balance&#x0a;• FREE for linked bank account&#x0a;• 1% for credit cards&#x0a;&#x0a;Instant Transfers:&#x0a;• 1% fee (minimum $0.25, maximum $10)&#x0a;&#x0a;International Transfers:&#x0a;• Base fee: $4.99&#x0a;• Exchange rate margin: 1%" TextColor="{StaticResource Black}" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--  Password Reset Question  -->
+            <Frame
+                BorderColor="{StaticResource ForegroundGrayStroke}"
+                Margin="0,5"
+                Padding="0">
+                <VerticalStackLayout>
+                    <Grid BackgroundColor="White" Padding="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            FontSize="16"
+                            Text="I forgot my password. What should I do?"
+                            TextColor="{StaticResource Black}" />
+                        <Button
+                            BackgroundColor="Transparent"
+                            Clicked="OnToggleClicked"
+                            Grid.Column="1"
+                            HeightRequest="40"
+                            Padding="0"
+                            StyleId="PasswordButton"
+                            Text="+"
+                            TextColor="{StaticResource Primary}"
+                            WidthRequest="40" />
+                    </Grid>
+                    <VerticalStackLayout
+                        BackgroundColor="{StaticResource ForegroundGray}"
+                        IsVisible="false"
+                        Padding="15"
+                        x:Name="PasswordAnswer">
+                        <Label Text="To reset your password:&#x0a;1. Click 'Forgot Password' on the login screen&#x0a;2. Enter your registered email address&#x0a;3. Check your email for a reset link&#x0a;4. Click the link and create a new password&#x0a;&#x0a;If you don't receive the email:&#x0a;• Check your spam folder&#x0a;• Verify your email address is correct&#x0a;• Contact support if problems persist" TextColor="{StaticResource Black}" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--  Unauthorized Transaction Question  -->
+            <Frame
+                BorderColor="{StaticResource ForegroundGrayStroke}"
+                Margin="0,5"
+                Padding="0">
+                <VerticalStackLayout>
+                    <Grid BackgroundColor="White" Padding="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            FontSize="16"
+                            Text="What if I notice an unauthorized transaction?"
+                            TextColor="{StaticResource Black}" />
+                        <Button
+                            BackgroundColor="Transparent"
+                            Clicked="OnToggleClicked"
+                            Grid.Column="1"
+                            HeightRequest="40"
+                            Padding="0"
+                            StyleId="UnauthorizedButton"
+                            Text="+"
+                            TextColor="{StaticResource Primary}"
+                            WidthRequest="40" />
+                    </Grid>
+                    <VerticalStackLayout
+                        BackgroundColor="{StaticResource ForegroundGray}"
+                        IsVisible="false"
+                        Padding="15"
+                        x:Name="UnauthorizedAnswer">
+                        <Label Text="If you notice an unauthorized transaction:&#x0a;1. Immediately change your password&#x0a;2. Enable two-factor authentication if not already active&#x0a;3. Contact our support team through the app&#x0a;4. Report the transaction as unauthorized&#x0a;&#x0a;We'll investigate the transaction and typically resolve claims within 10 business days. Your account is protected by our Fraud Protection Guarantee." TextColor="{StaticResource Black}" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

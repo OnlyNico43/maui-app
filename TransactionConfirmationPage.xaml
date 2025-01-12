@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    Title="Confirm Transaction"
+    x:Class="PayBuddy.TransactionConfirmationPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+        <Grid Padding="20" RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  Details Frame  -->
+            <Frame
+                BackgroundColor="White"
+                Grid.Row="1"
+                HorizontalOptions="Fill"
+                Padding="20">
+                <StackLayout Spacing="20">
+                    <!--  Recipient Details  -->
+                    <StackLayout>
+                        <Label
+                            FontSize="16"
+                            Text="To:"
+                            TextColor="{StaticResource Primary}" />
+                        <Label
+                            FontSize="20"
+                            Margin="0,5,0,0"
+                            TextColor="Black"
+                            x:Name="RecipientLabel" />
+                    </StackLayout>
+
+                    <!--  Amount Details  -->
+                    <StackLayout>
+                        <Label
+                            FontSize="16"
+                            Text="Amount Details:"
+                            TextColor="{StaticResource Primary}" />
+                        <Label
+                            FontSize="18"
+                            Margin="0,5,0,0"
+                            TextColor="Black"
+                            x:Name="AmountLabel" />
+                        <Label
+                            FontSize="16"
+                            Margin="0,5,0,0"
+                            TextColor="Black"
+                            x:Name="FeeLabel" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            Margin="0,5,0,0"
+                            TextColor="{StaticResource Primary}"
+                            x:Name="TotalLabel" />
+                    </StackLayout>
+
+                    <!--  Transfer Details  -->
+                    <StackLayout>
+                        <Label
+                            FontSize="16"
+                            Text="Transfer Details:"
+                            TextColor="{StaticResource Primary}" />
+                        <Label
+                            FontSize="16"
+                            Margin="0,5,0,0"
+                            TextColor="Black"
+                            x:Name="TransferSpeedLabel" />
+                        <Label
+                            FontSize="16"
+                            Margin="0,5,0,0"
+                            TextColor="Black"
+                            x:Name="PaymentMethodLabel" />
+                        <Label
+                            FontSize="16"
+                            Margin="0,5,0,0"
+                            TextColor="Black"
+                            x:Name="TransferDateLabel" />
+                    </StackLayout>
+
+                    <!--  Additional Details  -->
+                    <StackLayout>
+                        <Label
+                            FontSize="16"
+                            Text="Additional Details:"
+                            TextColor="{StaticResource Primary}" />
+                        <Label
+                            FontSize="16"
+                            Margin="0,5,0,0"
+                            TextColor="Black"
+                            x:Name="SaveContactLabel" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <!--  Buttons  -->
+            <Grid
+                ColumnSpacing="20"
+                Grid.Row="2"
+                HorizontalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    BackgroundColor="{StaticResource Danger}"
+                    Clicked="OnCancelClicked"
+                    Grid.Column="0"
+                    Text="Cancel"
+                    WidthRequest="150" />
+
+                <Button
+                    BackgroundColor="{StaticResource Success}"
+                    Clicked="OnConfirmClicked"
+                    Grid.Column="1"
+                    Text="Confirm"
+                    WidthRequest="150" />
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>
